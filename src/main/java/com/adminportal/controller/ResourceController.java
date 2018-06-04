@@ -24,7 +24,7 @@ public class ResourceController {
 		
 		for (String id : bookIdList) {
 			String bookId =id.substring(8);
-			bookService.removeOne(Long.parseLong(bookId));
+			bookService.removerUm(Long.parseLong(bookId));
 		}
 		
 		return "delete success";

@@ -15,19 +15,19 @@ public class BookServiceImpl implements BookService{
 	@Autowired
 	private BookRepository bookRepository;
 	
-	public Book save(Book book) {
+	public Book salvar(Book book) {
 		return bookRepository.save(book);
 	}
 	
-	public List<Book> findAll() {
+	public List<Book> encontrarTudo() {
 		return (List<Book>) bookRepository.findAll();
 	}
 	
-	public Book findOne(Long id) {
+	public Book encontrarUm(Long id) {
 		return bookRepository.findOne(id);
 	}
 	
-	public void removeOne(Long id) {
+	public void removerUm(Long id) {
 		bookRepository.delete(id);
 	}
 }

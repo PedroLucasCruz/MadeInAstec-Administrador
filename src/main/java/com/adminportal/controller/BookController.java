@@ -37,7 +37,7 @@ public class BookController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
-		bookService.save(book);
+		bookService.salvar(book);
 
 		MultipartFile bookImage = book.getBookImage();
 
@@ -57,7 +57,7 @@ public class BookController {
 	
 	@RequestMapping("/bookInfo")
 	public String bookInfo(@RequestParam("id") Long id, Model model) {
-		Book book = bookService.findOne(id);
+		Book book = bookService.encontrarUm(id);
 		model.addAttribute("book", book);
 		
 		return "bookInfo";
@@ -65,7 +65,7 @@ public class BookController {
 	
 	@RequestMapping("/updateBook")
 	public String updateBook(@RequestParam("id") Long id, Model model) {
-		Book book = bookService.findOne(id);
+		Book book = bookService.encontrarUm(id);
 		model.addAttribute("book", book);
 		
 		return "updateBook";
@@ -73,7 +73,7 @@ public class BookController {
 	
 	@RequestMapping(value="/updateBook", method=RequestMethod.POST)
 	public String updateBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
-		bookService.save(book);
+		bookService.salvar(book);
 		
 		MultipartFile bookImage = book.getBookImage();
 		
@@ -98,7 +98,7 @@ public class BookController {
 	
 	@RequestMapping("/bookList")
 	public String bookList(Model model) {
-		List<Book> bookList = bookService.findAll();
+		List<Book> bookList = bookService.encontrarTudo();
 		model.addAttribute("bookList", bookList);		
 		return "bookList";
 		
@@ -108,8 +108,8 @@ public class BookController {
 	public String remove(
 			@ModelAttribute("id") String id, Model model
 			) {
-		bookService.removeOne(Long.parseLong(id.substring(8)));
-		List<Book> bookList = bookService.findAll();
+		bookService.removerUm(Long.parseLong(id.substring(8)));
+		List<Book> bookList = bookService.encontrarTudo();
 		model.addAttribute("bookList", bookList);
 		
 		return "redirect:/book/bookList";

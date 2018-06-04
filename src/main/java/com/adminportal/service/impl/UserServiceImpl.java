@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 
 	@Override
-	public User createUser(User user, Set<UserRole> userRoles) {
+	public User criarUsuario(User user, Set<UserRole> userRoles) {
 		User localUser = userRepository.findByUsername(user.getUsername());
 
 		if (localUser != null) {
@@ -44,8 +44,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User save(User user) {
+	public User salvar(User user) {
 		return userRepository.save(user);
 	}
+
+    
 
 }

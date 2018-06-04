@@ -6,11 +6,11 @@ import com.adminportal.domain.Book;
 
 public interface BookService {
 	
-	Book save(Book book);
+	Book salvar(Book book);
 
-	List<Book> findAll();
+	List<Book> encontrarTudo(); 
 	
-	Book findOne(Long id);
+	Book encontrarUm(Long id);
 	
-	void removeOne(Long id);
+	void removerUm(Long id);
 }

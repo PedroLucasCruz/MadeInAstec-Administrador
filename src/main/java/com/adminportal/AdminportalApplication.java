@@ -38,6 +38,6 @@ public class AdminportalApplication implements CommandLineRunner{
 		role1.setName("ROLE_ADMIN");
 		userRoles.add(new UserRole(user1, role1));
 		
-		userService.createUser(user1, userRoles);
+		userService.criarUsuario(user1, userRoles);
 	}
 }
